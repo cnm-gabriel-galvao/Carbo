@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="2260" viewBox="0 0 1024 2260" role="img" aria-labelledby="title description">
+  <title id="title">Como funciona o script de busca de alimentos</title>
+  <desc id="description">Explicação visual linha por linha do código que sugere alimentos enquanto a pessoa digita.</desc>
+  <defs>
+    <pattern id="lines" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 7.5H8" stroke="#ffffff" stroke-opacity=".025" />
+    </pattern>
+    <filter id="shadow" x="-15%" y="-15%" width="130%" height="140%">
+      <feDropShadow dx="0" dy="7" stdDeviation="7" flood-color="#000000" flood-opacity=".25" />
+    </filter>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .mono { font-family: Consolas, "Courier New", monospace; }
+      .pink { fill: #dc1d55; }
+      .light { fill: #f3f1e9; }
+      .muted { fill: #c4ccc7; }
+      .code { fill: #a8df9b; }
+      .key { fill: #ffd479; }
+      .blue { fill: #8bc8ff; }
+    </style>
+  </defs>
+
+  <rect width="1024" height="2260" fill="#121716" />
+  <rect width="1024" height="2260" fill="url(#lines)" />
+  <path d="M982 0V2260" stroke="#d8dfd8" stroke-width="4" />
+  <circle cx="982" cy="78" r="23" fill="#e61d58" stroke="#731334" stroke-width="5" />
+
+  <rect x="82" y="42" width="820" height="96" rx="17" fill="#f3f1e9" filter="url(#shadow)" />
+  <text x="492" y="103" class="sans" text-anchor="middle" font-size="36" font-weight="700" fill="#111514">COMO A BUSCA FUNCIONA</text>
+  <text x="492" y="180" class="sans muted" text-anchor="middle" font-size="23">O script reage ao que você digita e sugere alimentos da lista.</text>
+
+  <rect x="66" y="214" width="850" height="338" rx="18" fill="#202725" stroke="#48534e" stroke-width="2" filter="url(#shadow)" />
+  <text x="94" y="255" class="sans" font-size="20" font-weight="700" fill="#f3f1e9">O CÓDIGO</text>
+  <text x="94" y="300" class="mono" font-size="19">
+    <tspan class="blue">input</tspan><tspan class="light">.addEventListener(</tspan><tspan class="key">"input"</tspan><tspan class="light">, function () {</tspan>
+  </text>
+  <text x="94" y="332" class="mono light" font-size="19">  sugestoes.innerHTML = ""</text>
+  <text x="94" y="364" class="mono light" font-size="19">  if (input.value === "") return</text>
+  <text x="94" y="396" class="mono light" font-size="19">  for (const alimento of alimentos) {</text>
+  <text x="94" y="428" class="mono light" font-size="19">    if (alimento.nome.toLowerCase().includes(</text>
+  <text x="94" y="460" class="mono light" font-size="19">      input.value.toLowerCase())) {</text>
+  <text x="94" y="492" class="mono light" font-size="19">      const item = document.createElement("li")</text>
+  <text x="94" y="524" class="mono light" font-size="19">      item.textContent = alimento.nome ...</text>
+
+  <rect x="66" y="578" width="850" height="150" rx="18" class="pink" filter="url(#shadow)" />
+  <circle cx="112" cy="626" r="25" fill="#f3f1e9" />
+  <text x="112" y="634" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#171717">1</text>
+  <text x="155" y="624" class="mono" font-size="21" font-weight="700" fill="#fff">addEventListener("input", function () {</text>
+  <text x="155" y="665" class="sans" font-size="21" fill="#fff">Quando o campo muda (digitar ou apagar), roda o código entre { }.</text>
+  <text x="155" y="699" class="sans" font-size="20" fill="#ffe3eb">input = evento de mudança no texto; function = ação a executar.</text>
+
+  <rect x="66" y="750" width="850" height="145" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="797" r="25" class="pink" />
+  <text x="112" y="805" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">2</text>
+  <text x="155" y="795" class="mono code" font-size="22">sugestoes.innerHTML = ""</text>
+  <text x="155" y="838" class="sans light" font-size="21">Apaga as opções antigas para montar a lista atualizada.</text>
+  <text x="155" y="870" class="sans muted" font-size="19">innerHTML é o conteúdo dentro da lista; "" significa vazio.</text>
+
+  <rect x="66" y="917" width="850" height="150" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="965" r="25" class="pink" />
+  <text x="112" y="973" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">3</text>
+  <text x="155" y="963" class="mono key" font-size="22">if (input.value === "") return</text>
+  <text x="155" y="1006" class="sans light" font-size="21">Se o campo estiver vazio, return encerra a função aqui.</text>
+  <text x="155" y="1038" class="sans muted" font-size="19">input.value é o texto que a pessoa digitou.</text>
+
+  <rect x="66" y="1089" width="850" height="155" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="1138" r="25" class="pink" />
+  <text x="112" y="1146" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">4</text>
+  <text x="155" y="1136" class="mono code" font-size="22">for (const alimento of alimentos) {</text>
+  <text x="155" y="1179" class="sans light" font-size="21">Percorre o array alimentos, um item por vez.</text>
+  <text x="155" y="1212" class="sans muted" font-size="19">A cada volta, alimento representa o item atual da lista.</text>
+
+  <rect x="66" y="1266" width="850" height="183" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="1315" r="25" class="pink" />
+  <text x="112" y="1323" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">5</text>
+  <text x="155" y="1312" class="mono key" font-size="20">if (alimento.nome.toLowerCase()</text>
+  <text x="155" y="1344" class="mono key" font-size="20">    .includes(input.value.toLowerCase())) {</text>
+  <text x="155" y="1385" class="sans light" font-size="20">Compara o nome do alimento com o texto digitado.</text>
+  <text x="155" y="1418" class="sans muted" font-size="19">toLowerCase() ignora maiúsculas; includes() procura um trecho.</text>
+  <text x="155" y="1440" class="sans muted" font-size="17">Acentos ainda precisam coincidir: "feijao" não encontra "feijão".</text>
+
+  <rect x="66" y="1471" width="850" height="171" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="1520" r="25" class="pink" />
+  <text x="112" y="1528" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">6</text>
+  <text x="155" y="1517" class="mono code" font-size="21">const item = document.createElement("li")</text>
+  <text x="155" y="1551" class="mono code" font-size="21">item.textContent = alimento.nome</text>
+  <text x="155" y="1593" class="sans light" font-size="20">Cria um item de lista e coloca nele o nome encontrado.</text>
+  <text x="155" y="1625" class="sans muted" font-size="19">Esse é o texto que aparecerá como sugestão.</text>
+
+  <rect x="66" y="1664" width="850" height="207" rx="18" class="pink" filter="url(#shadow)" />
+  <circle cx="112" cy="1713" r="25" fill="#f3f1e9" />
+  <text x="112" y="1721" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#171717">7</text>
+  <text x="155" y="1710" class="mono" font-size="21" font-weight="700" fill="#fff">item.onclick = function () {</text>
+  <text x="190" y="1745" class="mono" font-size="20" fill="#fff">input.value = alimento.nome</text>
+  <text x="190" y="1778" class="mono" font-size="20" fill="#fff">sugestoes.innerHTML = ""</text>
+  <text x="155" y="1820" class="sans" font-size="20" fill="#fff">Ao clicar: preenche o campo com o nome e fecha a lista.</text>
+  <text x="155" y="1853" class="sans" font-size="18" fill="#ffe3eb">onclick é a ação executada quando o item recebe um clique.</text>
+
+  <rect x="66" y="1893" width="850" height="145" rx="18" fill="#202725" stroke="#dc1d55" stroke-width="3" />
+  <circle cx="112" cy="1940" r="25" class="pink" />
+  <text x="112" y="1948" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#fff">8</text>
+  <text x="155" y="1938" class="mono code" font-size="22">sugestoes.appendChild(item)</text>
+  <text x="155" y="1981" class="sans light" font-size="21">Coloca o item criado dentro da lista de sugestões na página.</text>
+  <text x="155" y="2013" class="sans muted" font-size="19">appendChild = adicionar como filho de outro elemento.</text>
+
+  <rect x="66" y="2060" width="850" height="125" rx="18" fill="#f3f1e9" />
+  <text x="491" y="2107" class="mono" text-anchor="middle" font-size="23" font-weight="700" fill="#171717">}   fecha o if   ·   }   fecha o for   ·   })   fecha o evento</text>
+  <text x="491" y="2152" class="sans" text-anchor="middle" font-size="20" fill="#303b36">As chaves agrupam o código que deve rodar em cada situação.</text>
+</svg>

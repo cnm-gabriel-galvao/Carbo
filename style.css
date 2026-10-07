@@ -26,7 +26,7 @@ header img {
   margin-bottom: 20px;
 }
 
-.caixa-digitacao {
+#busca {
   font-family: "Lato", sans-serif;
   width: 100%;
   background-color: #fbf6e5;
@@ -44,9 +44,12 @@ header img {
   position: relative;
 }
 
-.sugestoes {
+#sugestoes {
   position: absolute;
   top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  margin: 0;
   padding: 4px 0;
   list-style: none;
   background-color: #fbf6e5;
@@ -55,31 +58,22 @@ header img {
   border-radius: 8px;
   font-family: "Lato", sans-serif;
   font-size: 14px;
-  text-align: left;
+  text-align: center;
   max-height: 240px;
   overflow-y: auto;
 }
 
-.sugestoes:empty {
+#sugestoes:empty {
   display: none;
 }
 
-.sugestoes li {
+#sugestoes li {
   padding: 8px 16px;
   cursor: pointer;
 }
 
-.sugestoes li:hover {
+#sugestoes li:hover {
   background-color: #f3ecd4;
-}
-
-.sugestoes li.vazio {
-  color: #171717;
-  cursor: default;
-}
-
-.sugestoes li.vazio:hover {
-  background-color: transparent;
 }
 
 footer {

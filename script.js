@@ -1,4 +1,4 @@
-const input = document.querySelector(".caixa-digitacao")
+const input = document.querySelector("#busca")
 const sugestoes = document.querySelector("#sugestoes")
 
 input.addEventListener("input", function () {

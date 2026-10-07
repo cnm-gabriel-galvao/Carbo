@@ -15,7 +15,10 @@ Projeto de estudos e exercícios de programação. A página principal apresenta
 - `style.css` — estilos da página principal.
 - `alimentos.js` — lista local de 30 alimentos com carboidratos aproximados por 100 g, referenciados à TACO/NEPA-UNICAMP.
 - `img/` — imagens usadas pelo projeto.
-- `aulas/` — exercícios `ex001.html`, `ex002.html`, `ex003.html`, `ex004.html` e `ex.js`.
+- `aulas/` — exercícios organizados por aula/vídeo:
+  - `aula04/` — `ex001.html`.
+  - `aula06/` — `ex002.html`, `ex003.html` e `ex004.html`.
+  - `aula07/` — `ex.js`.
 - `.vscode/` — recomendações de extensões e configurações do VS Code.
 
 ## Editor e extensões
