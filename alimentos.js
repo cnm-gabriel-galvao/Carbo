@@ -1,6 +1,3 @@
-// Carboidratos aproximados por 100 g de alimento.
-// Valores de referência baseados na Tabela TACO (NEPA/UNICAMP):
-// https://nepa.unicamp.br/wp-content/uploads/sites/27/2023/10/taco_4_edicao_ampliada_e_revisada.pdf
 const alimentos = [
   { nome: "Arroz branco cozido", carboidratosPor100g: 28.1 },
   { nome: "Arroz integral cozido", carboidratosPor100g: 25.8 },
@@ -16,13 +13,13 @@ const alimentos = [
   { nome: "Mandioca cozida", carboidratosPor100g: 30.1 },
   { nome: "Batata inglesa cozida", carboidratosPor100g: 11.9 },
   { nome: "Batata-doce cozida", carboidratosPor100g: 18.4 },
-  { nome: "Manga Palmer crua", carboidratosPor100g: 19.4 },
+  { nome: "Inhame cru", carboidratosPor100g: 23.2 },
   { nome: "Polvilho doce", carboidratosPor100g: 86.8 },
   { nome: "Cuscuz de milho cozido", carboidratosPor100g: 25.3 },
   { nome: "Feijão carioca cozido", carboidratosPor100g: 13.6 },
   { nome: "Feijão preto cozido", carboidratosPor100g: 14.0 },
   { nome: "Lentilha cozida", carboidratosPor100g: 16.3 },
-  { nome: "Grão-de-bico cru", carboidratosPor100g: 57.9 },
+  { nome: "Grão-de-bico cozido", carboidratosPor100g: 27.4 },
   { nome: "Banana-prata crua", carboidratosPor100g: 26.0 },
   { nome: "Banana-nanica crua", carboidratosPor100g: 23.8 },
   { nome: "Banana-maçã crua", carboidratosPor100g: 22.3 },
@@ -30,6 +27,6 @@ const alimentos = [
   { nome: "Abacaxi cru", carboidratosPor100g: 12.3 },
   { nome: "Laranja-pera crua", carboidratosPor100g: 8.9 },
   { nome: "Goiaba vermelha crua", carboidratosPor100g: 13.0 },
-  { nome: "Melancia crua", carboidratosPor100g: 8.1 },
   { nome: "Tomate cru", carboidratosPor100g: 3.1 },
+  { nome: "Inhame cru", carboidratosPor100g: 23.2 },
 ]
