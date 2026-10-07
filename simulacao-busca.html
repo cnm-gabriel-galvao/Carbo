@@ -1,160 +1,234 @@
 <div id="carbo-busca-demo">
   <style>
     #carbo-busca-demo {
-      color: var(--foreground);
-      font: 400 14px/1.5 system-ui, sans-serif;
-      max-width: 760px;
-      margin: 0 auto;
+      --carbo-dark: #171717;
+      --carbo-cream: #fbf6e5;
+      --carbo-hover: #f3ecd4;
+      --carbo-pink: #dc1d55;
+      box-sizing: border-box;
+      width: calc(100% + 16px);
+      min-height: calc(100vh + 16px);
+      margin: -8px;
+      padding: 28px 22px;
+      color: var(--carbo-cream);
+      font-family: "Lato", Arial, sans-serif;
+      background: var(--carbo-dark) url("./img/back.png") center / cover fixed;
     }
 
-    #carbo-busca-demo h2 { font-size: 18px; font-weight: 500; margin: 0 0 12px; }
-    #carbo-busca-demo .controls { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; }
-    #carbo-busca-demo .step { color: var(--muted-foreground); }
-    #carbo-busca-demo .columns { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-    #carbo-busca-demo h3 { font-size: 13px; font-weight: 500; margin: 0 0 6px; }
-    #carbo-busca-demo pre { margin: 0; padding: 10px; overflow-x: auto; background: var(--muted); color: var(--foreground); }
-    #carbo-busca-demo code { font: 12px/1.7 ui-monospace, monospace; }
-    #carbo-busca-demo .active { color: var(--primary); font-weight: 700; }
-    #carbo-busca-demo .explanation { min-height: 44px; margin: 12px 0; }
-    #carbo-busca-demo .demo-input { padding: 8px 10px; border: 1px solid var(--border); border-radius: 6px; }
-    #carbo-busca-demo ul { margin: 6px 0 0; padding-left: 22px; }
-    #carbo-busca-demo li { padding: 2px 0; }
-    #carbo-busca-demo .empty { color: var(--muted-foreground); }
-    @media (max-width: 560px) { #carbo-busca-demo .columns { grid-template-columns: 1fr; } }
+    #carbo-busca-demo * { box-sizing: border-box; }
+    #carbo-busca-demo .page { max-width: 1020px; margin: 0 auto; }
+    #carbo-busca-demo header { display: flex; justify-content: center; margin-bottom: 22px; }
+    #carbo-busca-demo .brand { display: flex; align-items: center; gap: 0; }
+    #carbo-busca-demo .brand img { width: 190px; height: auto; }
+    #carbo-busca-demo .debug { margin-left: -3px; color: var(--carbo-cream); font: 900 25px/.95 "Arial Black", "Arial Rounded MT Bold", Arial, sans-serif; letter-spacing: -1.8px; -webkit-text-stroke: .4px var(--carbo-cream); }
+    #carbo-busca-demo .columns { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 18px; align-items: start; }
+    #carbo-busca-demo .left { display: grid; gap: 14px; min-width: 0; }
+    #carbo-busca-demo .code-side { min-width: 0; padding: 18px; border: 1px solid rgba(251, 246, 229, 0.28); border-radius: 10px; background: rgba(23, 23, 23, 0.9); }
+    #carbo-busca-demo .label { margin: 0 0 12px; color: var(--carbo-cream); font-size: 13px; font-weight: 700; text-align: center; }
+    #carbo-busca-demo pre { margin: 0; overflow-x: auto; color: var(--carbo-cream); font: 12px/1.9 Consolas, monospace; }
+    #carbo-busca-demo .line { display: block; padding: 0 8px; border-radius: 4px; white-space: pre; }
+    #carbo-busca-demo .line.active { background: var(--carbo-cream); color: var(--carbo-dark); }
+    #carbo-busca-demo .trace { min-height: 190px; }
+    #carbo-busca-demo .trace .value { color: #ffd078; }
+    #carbo-busca-demo .trace .line.active { background: var(--carbo-cream); color: var(--carbo-dark); }
+    #carbo-busca-demo .right { padding-top: 2px; color: var(--carbo-cream); text-align: center; }
+    #carbo-busca-demo .right .label { margin-bottom: 9px; }
+    #carbo-busca-demo .search { width: 100%; padding: 12px 14px; border: 1px solid var(--carbo-dark); border-radius: 8px; outline-color: var(--carbo-cream); background: var(--carbo-cream); color: var(--carbo-dark); font: 14px "Lato", Arial, sans-serif; text-align: center; }
+    #carbo-busca-demo .sample { margin: 8px 0; color: var(--carbo-cream); font-size: 12px; opacity: 0.8; }
+    #carbo-busca-demo .suggestions { margin: 6px 0 0; padding: 4px 0; overflow: hidden; border-radius: 8px; background: var(--carbo-cream); color: var(--carbo-dark); list-style: none; }
+    #carbo-busca-demo .suggestions:empty { display: none; }
+    #carbo-busca-demo .suggestions li { padding: 8px 12px; font-size: 14px; }
+    #carbo-busca-demo .suggestions li:hover { background: var(--carbo-hover); }
+    #carbo-busca-demo .status { min-height: 44px; margin: 14px 0 0; color: var(--carbo-cream); font-size: 13px; line-height: 1.5; text-align: center; }
+    #carbo-busca-demo .checking { color: var(--carbo-cream); font-size: 12px; opacity: 0.8; }
+
+    @media (max-width: 700px) {
+      #carbo-busca-demo { padding: 20px 14px; }
+      #carbo-busca-demo .brand img { width: 160px; }
+      #carbo-busca-demo .debug { font-size: 22px; }
+      #carbo-busca-demo .columns { grid-template-columns: 1fr; }
+      #carbo-busca-demo .right { grid-row: 1; }
+    }
   </style>
 
-  <h2>Como a busca encontra sugestões</h2>
-  <div class="controls">
-    <button class="btn" id="prev" type="button">Anterior</button>
-    <button class="btn btn-primary" id="next" type="button">Próximo</button>
-    <span class="step" id="step"></span>
+  <div class="page">
+      <header>
+        <div class="brand">
+          <img src="./img/carbo-logo.png" alt="CARBO." />
+          <span class="debug">DEBBUG</span>
+        </div>
+      </header>
+    <div class="columns">
+      <div class="left">
+        <section class="code-side">
+          <p class="label">O que o script está fazendo</p>
+          <pre id="code"></pre>
+        </section>
+        <section class="code-side">
+          <p class="label">O mesmo código, com os valores desta busca</p>
+          <pre class="trace" id="trace"></pre>
+        </section>
+      </div>
+      <section class="right">
+        <p class="label">Digite um alimento</p>
+        <input class="search" id="search" placeholder="Ex.: arroz" autocomplete="off" />
+        <p class="sample">Demonstração com 10 alimentos</p>
+        <ul class="suggestions" id="suggestions"></ul>
+        <p class="checking" id="checking" aria-live="polite"></p>
+        <p class="status" id="status">Comece digitando. O código vai acompanhar a busca.</p>
+      </section>
+    </div>
   </div>
-  <div class="columns">
-    <section>
-      <h3>Trecho do código neste passo</h3>
-      <pre><code id="code"></code></pre>
-    </section>
-    <section>
-      <h3>O que aparece na página</h3>
-      <div class="demo-input" id="query"></div>
-      <ul id="results"></ul>
-    </section>
-  </div>
-  <p class="explanation" id="explanation" aria-live="polite"></p>
 
   <script>
     const demo = document.getElementById("carbo-busca-demo")
-    const steps = [
-      {
-        query: "arr",
-        results: [],
-        active: 0,
-        explanation: 'Você digitou "arr". O evento input dispara e inicia uma nova busca.',
-      },
-      {
-        query: "arr",
-        results: [],
-        active: 1,
-        explanation: 'O código apaga sugestões antigas e guarda o texto digitado em minúsculas: "arr".',
-      },
-      {
-        query: "arr",
-        results: [],
-        active: 2,
-        explanation: 'O for olha "Arroz branco cozido". includes("arr") dá true porque "arroz" começa com "arr".',
-      },
-      {
-        query: "arr",
-        results: ["Arroz branco cozido"],
-        active: 3,
-        explanation: 'Como deu true, cria um li com "Arroz branco cozido" e appendChild coloca esse li dentro do ul.',
-      },
-      {
-        query: "arr",
-        results: ["Arroz branco cozido"],
-        active: 2,
-        explanation: 'O for continua. Em "Arroz integral cozido", includes("arr") também dá true.',
-      },
-      {
-        query: "arr",
-        results: ["Arroz branco cozido", "Arroz integral cozido"],
-        active: 3,
-        explanation: 'Cria outro li e o adiciona ao mesmo ul. Agora há dois itens de sugestão.',
-      },
-      {
-        query: "arr",
-        results: ["Arroz branco cozido", "Arroz integral cozido"],
-        active: 2,
-        explanation: 'Em "Aveia em flocos crua", includes("arr") dá false. O if é pulado e o for vai ao próximo alimento.',
-      },
-      {
-        query: "xyz123",
-        results: [],
-        active: 1,
-        explanation: 'Agora imagine outra busca: "xyz123". A lista antiga é apagada antes de procurar.',
-      },
-      {
-        query: "xyz123",
-        results: [],
-        active: 2,
-        explanation: 'Nenhum nome contém "xyz123": includes() dá false para todos. Nenhum li é criado; o ul de sugestões fica sem itens.',
-      },
+    const foods = [
+      "Arroz branco cozido",
+      "Arroz integral cozido",
+      "Aveia em flocos crua",
+      "Biscoito maisena",
+      "Farinha de trigo",
+      "Pão francês",
+      "Feijão carioca cozido",
+      "Banana-prata crua",
+      "Maçã Fuji crua",
+      "Macarrão instantâneo",
     ]
 
-    const codeLines = [
+    const lines = [
       'campoDeBusca.addEventListener("input", function () {',
       '  listaDeSugestoes.innerHTML = ""',
       '  const textoDigitado = campoDeBusca.value.toLowerCase()',
+      '  if (textoDigitado === "") return',
       '  for (const alimento of alimentos) {',
       '    const nomeDoAlimentoAtual = alimento.nome.toLowerCase()',
       '    if (nomeDoAlimentoAtual.includes(textoDigitado)) {',
       '      const sugestao = document.createElement("li")',
+      '      sugestao.textContent = alimento.nome',
       '      listaDeSugestoes.appendChild(sugestao)',
       '    }',
       '  }',
       '})',
     ]
 
-    let current = 0
+    const code = demo.querySelector("#code")
+    const trace = demo.querySelector("#trace")
+    const search = demo.querySelector("#search")
+    const suggestions = demo.querySelector("#suggestions")
+    const checking = demo.querySelector("#checking")
+    const status = demo.querySelector("#status")
+    let searchNumber = 0
 
-    function showStep() {
-      const step = steps[current]
-      demo.querySelector("#step").textContent = `Passo ${current + 1} de ${steps.length}`
-      demo.querySelector("#query").textContent = `Texto digitado: ${step.query}`
-      demo.querySelector("#explanation").textContent = step.explanation
-      demo.querySelector("#code").innerHTML = codeLines
-        .map((line, index) => `<span class="${index === step.active ? "active" : ""}">${line}</span>`)
-        .join("\n")
+    function showValues(rawText, foodName = "", matches = null) {
+      const lowerText = rawText.toLowerCase()
+      const textValue = JSON.stringify(lowerText)
+      const foodValue = foodName ? JSON.stringify(foodName.toLowerCase()) : "nomeDoAlimentoAtual"
+      const runtimeLines = lines.map((line, index) => {
+        if (index === 2) return `  const textoDigitado = ${JSON.stringify(rawText)}.toLowerCase()`
+        if (index === 3) return `  if (${textValue} === "") return`
+        if (index === 5 && foodName) return `    const nomeDoAlimentoAtual = ${JSON.stringify(foodName)}.toLowerCase()`
+        if (index === 6) {
+          const comparison = foodName ? `${foodValue}.includes(${textValue})` : `nomeDoAlimentoAtual.includes(${textValue})`
+          const result = matches === null ? "" : ` // ${matches} para este alimento`
+          return `    if (${comparison}) {${result}`
+        }
+        if (index === 8 && foodName) return `      sugestao.textContent = ${JSON.stringify(foodName)}`
+        return line
+      })
 
-      const results = demo.querySelector("#results")
-      results.innerHTML = ""
-      if (step.results.length === 0) {
-        const empty = document.createElement("li")
-        empty.className = "empty"
-        empty.textContent = "Nenhuma sugestão"
-        results.appendChild(empty)
-      } else {
-        for (const name of step.results) {
+      trace.replaceChildren()
+      runtimeLines.forEach((text, index) => {
+        const line = document.createElement("span")
+        line.className = `line ${index === 2 || index === 5 || index === 6 ? "value" : ""}`
+        line.dataset.line = index
+        line.textContent = text
+        trace.appendChild(line)
+      })
+    }
+
+    code.innerHTML = lines
+      .map((line, index) => `<span class="line" data-line="${index}">${line}</span>`)
+      .join("")
+    showValues("")
+
+    function highlight(line) {
+      demo.querySelectorAll(".line").forEach((item) => item.classList.remove("active"))
+      demo.querySelectorAll(`[data-line="${line}"]`).forEach((item) => item.classList.add("active"))
+    }
+
+    function wait() {
+      return new Promise((resolve) => setTimeout(resolve, 150))
+    }
+
+    search.addEventListener("input", async function () {
+      const thisSearch = ++searchNumber
+      const text = search.value.toLowerCase()
+      showValues(search.value)
+
+      highlight(0)
+      await wait()
+      if (thisSearch !== searchNumber) return
+
+      highlight(1)
+      suggestions.innerHTML = ""
+      await wait()
+      if (thisSearch !== searchNumber) return
+
+      highlight(2)
+      await wait()
+      if (thisSearch !== searchNumber) return
+
+      if (text === "") {
+        highlight(3)
+        checking.textContent = ""
+        status.textContent = "Campo vazio: o return encerra a busca."
+        return
+      }
+
+      for (const name of foods) {
+        showValues(search.value, name)
+        highlight(4)
+        checking.textContent = `Verificando: ${name}`
+        await wait()
+        if (thisSearch !== searchNumber) return
+
+        highlight(5)
+        await wait()
+        if (thisSearch !== searchNumber) return
+
+        const matches = name.toLowerCase().includes(text)
+        showValues(search.value, name, matches)
+        highlight(6)
+        status.textContent = matches
+          ? `true para "${name}": esse alimento combina e vira sugestão.`
+          : `false para "${name}": só esse alimento é pulado; o for verifica o próximo.`
+        await wait()
+        if (thisSearch !== searchNumber) return
+
+        if (matches) {
+          highlight(7)
           const item = document.createElement("li")
+          await wait()
+          if (thisSearch !== searchNumber) return
+
+          highlight(8)
           item.textContent = name
-          results.appendChild(item)
+          await wait()
+          if (thisSearch !== searchNumber) return
+
+          highlight(9)
+          suggestions.appendChild(item)
+          await wait()
+          if (thisSearch !== searchNumber) return
         }
       }
 
-      demo.querySelector("#prev").disabled = current === 0
-      demo.querySelector("#next").disabled = current === steps.length - 1
-    }
-
-    demo.querySelector("#prev").addEventListener("click", function () {
-      if (current > 0) current--
-      showStep()
+      checking.textContent = "Busca concluída"
+      if (suggestions.children.length === 0) {
+        status.textContent = `Todos deram false para "${text}". Nenhum <li> foi adicionado ao ul de sugestões.`
+      } else {
+        status.textContent = `${suggestions.children.length} sugestão(ões) adicionada(s). Um false só pula o alimento que está sendo verificado.`
+      }
     })
-
-    demo.querySelector("#next").addEventListener("click", function () {
-      if (current < steps.length - 1) current++
-      showStep()
-    })
-
-    showStep()
   </script>
 </div>
