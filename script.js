@@ -3,7 +3,7 @@ const nomeDigitado = input.value
 
 const alimento = alimentos[0]
 const carboidratos = alimento.carboidratosPor100g
-prite(
+console.log(
   "O alimento " +
     alimento.nome +
     " possui " +
