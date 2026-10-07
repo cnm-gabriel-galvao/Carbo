@@ -109,3 +109,35 @@ h1 {
 p {
   color: #fbf6e5;
 }
+
+#selecionados {
+  max-width: 300px;
+  margin: 12px auto 0;
+  padding: 0;
+  list-style: none;
+  font-family: "Lato", sans-serif;
+  font-size: 14px;
+}
+
+#selecionados li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  margin-bottom: 8px;
+  padding: 8px 16px;
+  background-color: #fbf6e5;
+  color: #171717;
+  border: 1px solid #171717;
+  border-radius: 8px;
+}
+
+#selecionados button {
+  background: none;
+  margin: 0;
+  border: none;
+  color: #171717;
+  font-size: 18px;
+  line-height: 1;
+  cursor: pointer;
+}

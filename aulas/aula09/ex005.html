@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #b6aeae;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>exercicio</h1>
+    <p>texto do paragrafo</p>
+    <div id="area" onclick="clicar()">texto do paragrafo</div>
+    <script>
+      function clicar() {
+        var a = window.document.getElementById("area")
+        a.innerHTML = "clicou"
+      }
+    </script>
+  </body>
+</html>
