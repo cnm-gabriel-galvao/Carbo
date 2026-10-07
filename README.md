@@ -13,6 +13,7 @@ Projeto de estudos e exercícios de programação. A página principal apresenta
 
 - `index.html` — página principal do Carbo.
 - `style.css` — estilos da página principal.
+- `alimentos.js` — lista local de 30 alimentos com carboidratos aproximados por 100 g, referenciados à TACO/NEPA-UNICAMP.
 - `img/` — imagens usadas pelo projeto.
 - `aula04/` — exercício `ex001.html` com caixas de alerta, confirmação e entrada de texto.
 - `aula06/` — exercícios `ex002.html`, `ex003.html` e `ex004.html` com entrada e exibição de dados.
