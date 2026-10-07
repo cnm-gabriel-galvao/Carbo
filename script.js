@@ -1,39 +1,22 @@
 const input = document.querySelector(".caixa-digitacao")
 const sugestoes = document.querySelector("#sugestoes")
 
-function normalizar(texto) {
-  return texto
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .trim()
-}
-
-input.addEventListener("input", () => {
-  const busca = normalizar(input.value)
+input.addEventListener("input", function () {
   sugestoes.innerHTML = ""
 
-  if (!busca) return
+  if (input.value === "") return
 
-  const encontrados = alimentos
-    .filter((alimento) => normalizar(alimento.nome).includes(busca))
-    .slice(0, 6)
+  for (const alimento of alimentos) {
+    if (alimento.nome.toLowerCase().includes(input.value.toLowerCase())) {
+      const item = document.createElement("li")
+      item.textContent = alimento.nome
 
-  if (encontrados.length === 0) {
-    const item = document.createElement("li")
-    item.className = "vazio"
-    item.textContent = "Nenhum alimento encontrado"
-    sugestoes.append(item)
-    return
+      item.onclick = function () {
+        input.value = alimento.nome
+        sugestoes.innerHTML = ""
+      }
+
+      sugestoes.appendChild(item)
+    }
   }
-
-  encontrados.forEach((alimento) => {
-    const item = document.createElement("li")
-    item.textContent = alimento.nome
-    item.addEventListener("click", () => {
-      input.value = alimento.nome
-      sugestoes.innerHTML = ""
-    })
-    sugestoes.append(item)
-  })
 })
