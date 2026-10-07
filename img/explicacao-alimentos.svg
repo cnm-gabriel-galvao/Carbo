@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1536" viewBox="0 0 1024 1536" role="img" aria-labelledby="title description">
+  <title id="title">Entendendo a lista alimentos em JavaScript</title>
+  <desc id="description">Diagrama que identifica const, o nome alimentos, o array, objetos, propriedades e valores usando um exemplo de alimento.</desc>
+  <defs>
+    <pattern id="lines" width="8" height="8" patternUnits="userSpaceOnUse">
+      <path d="M0 7.5H8" stroke="#ffffff" stroke-opacity=".025" />
+    </pattern>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="9" refY="6" orient="auto">
+      <path d="M1 1L10 6L1 11" fill="none" stroke="#f3f1e9" stroke-width="2" />
+    </marker>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="150%">
+      <feDropShadow dx="0" dy="8" stdDeviation="9" flood-color="#000000" flood-opacity=".28" />
+    </filter>
+    <style>
+      .sans { font-family: Arial, Helvetica, sans-serif; }
+      .mono { font-family: Consolas, "Courier New", monospace; }
+      .muted { fill: #b9c0bb; }
+      .pink { fill: #dc1d55; }
+      .edge { stroke: #f3f1e9; stroke-width: 3; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect width="1024" height="1536" fill="#121716" />
+  <rect width="1024" height="1536" fill="url(#lines)" />
+  <path d="M982 0V1536" stroke="#d8dfd8" stroke-width="5" />
+  <path d="M982 40V1496" stroke="#d8dfd8" stroke-width="2" />
+  <circle cx="982" cy="94" r="25" fill="#e61d58" stroke="#731334" stroke-width="5" />
+
+  <rect x="130" y="58" width="770" height="105" rx="17" fill="#f3f1e9" filter="url(#shadow)" />
+  <text x="515" y="124" class="sans" text-anchor="middle" font-size="38" font-weight="700" fill="#111514">O QUE TEM NO alimentos.js?</text>
+
+  <text x="82" y="222" class="sans muted" font-size="23" letter-spacing="2">UM EXEMPLO DA LISTA</text>
+  <rect x="70" y="250" width="850" height="285" rx="20" fill="#202725" stroke="#48534e" stroke-width="2" filter="url(#shadow)" />
+  <text x="105" y="306" class="mono" font-size="30" fill="#f3f1e9">
+    <tspan fill="#ff85a8">const</tspan><tspan> </tspan><tspan fill="#80d8c4">alimentos</tspan><tspan> = [</tspan>
+  </text>
+  <text x="145" y="361" class="mono" font-size="28" fill="#f3f1e9">{</text>
+  <text x="185" y="410" class="mono" font-size="25" fill="#f3f1e9"><tspan fill="#ffd479">nome</tspan><tspan>: </tspan><tspan fill="#a8df9b">"Arroz branco cozido"</tspan><tspan>,</tspan></text>
+  <text x="185" y="459" class="mono" font-size="25" fill="#f3f1e9"><tspan fill="#ffd479">carboidratosPor100g</tspan><tspan>: </tspan><tspan fill="#8bc8ff">28.1</tspan></text>
+  <text x="145" y="503" class="mono" font-size="28" fill="#f3f1e9">}</text>
+  <text x="105" y="503" class="mono" font-size="30" fill="#f3f1e9">]</text>
+
+  <text x="512" y="585" class="sans" text-anchor="middle" font-size="24" font-weight="700" fill="#d5ddd7">CADA PARTE TEM UM PAPEL</text>
+
+  <path d="M250 635V676" class="edge" />
+  <path d="M770 635V676" class="edge" />
+  <rect x="70" y="690" width="400" height="155" rx="20" class="pink" filter="url(#shadow)" />
+  <text x="270" y="742" class="mono" text-anchor="middle" font-size="35" font-weight="700" fill="#fff">const</text>
+  <text x="270" y="784" class="sans" text-anchor="middle" font-size="22" fill="#fff">palavra-chave que declara</text>
+  <text x="270" y="816" class="sans" text-anchor="middle" font-size="22" fill="#fff">uma constante</text>
+  <rect x="515" y="690" width="405" height="155" rx="20" class="pink" filter="url(#shadow)" />
+  <text x="717" y="742" class="mono" text-anchor="middle" font-size="35" font-weight="700" fill="#fff">alimentos</text>
+  <text x="717" y="784" class="sans" text-anchor="middle" font-size="22" fill="#fff">nome (identificador)</text>
+  <text x="717" y="816" class="sans" text-anchor="middle" font-size="22" fill="#fff">da constante</text>
+
+  <path d="M270 845V888" class="edge" />
+  <path d="M717 845V888" class="edge" />
+  <rect x="70" y="902" width="400" height="155" rx="20" fill="#303b36" stroke="#80d8c4" stroke-width="3" />
+  <text x="270" y="956" class="mono" text-anchor="middle" font-size="34" font-weight="700" fill="#80d8c4">[ ... ]</text>
+  <text x="270" y="999" class="sans" text-anchor="middle" font-size="22" fill="#f3f1e9">array: a lista de alimentos</text>
+  <rect x="515" y="902" width="405" height="155" rx="20" fill="#303b36" stroke="#80d8c4" stroke-width="3" />
+  <text x="717" y="956" class="mono" text-anchor="middle" font-size="34" font-weight="700" fill="#80d8c4">{ ... }</text>
+  <text x="717" y="999" class="sans" text-anchor="middle" font-size="22" fill="#f3f1e9">objeto: um alimento da lista</text>
+
+  <path d="M717 1057V1094" class="edge" />
+  <text x="512" y="1134" class="sans" text-anchor="middle" font-size="23" font-weight="700" fill="#d5ddd7">PROPRIEDADES E SEUS VALORES</text>
+
+  <rect x="70" y="1160" width="400" height="202" rx="20" fill="#202725" stroke="#ffd479" stroke-width="3" />
+  <text x="270" y="1207" class="mono" text-anchor="middle" font-size="27" font-weight="700" fill="#ffd479">nome</text>
+  <text x="270" y="1242" class="sans" text-anchor="middle" font-size="20" fill="#c4ccc7">propriedade (chave)</text>
+  <path d="M120 1264H420" stroke="#515d57" stroke-width="2" />
+  <text x="270" y="1303" class="mono" text-anchor="middle" font-size="22" fill="#a8df9b">"Arroz branco cozido"</text>
+  <text x="270" y="1335" class="sans" text-anchor="middle" font-size="20" fill="#c4ccc7">valor: string (texto)</text>
+
+  <rect x="515" y="1160" width="405" height="202" rx="20" fill="#202725" stroke="#ffd479" stroke-width="3" />
+  <text x="717" y="1207" class="mono" text-anchor="middle" font-size="24" font-weight="700" fill="#ffd479">carboidratosPor100g</text>
+  <text x="717" y="1242" class="sans" text-anchor="middle" font-size="20" fill="#c4ccc7">propriedade (chave)</text>
+  <path d="M565 1264H870" stroke="#515d57" stroke-width="2" />
+  <text x="717" y="1303" class="mono" text-anchor="middle" font-size="25" fill="#8bc8ff">28.1</text>
+  <text x="717" y="1335" class="sans" text-anchor="middle" font-size="20" fill="#c4ccc7">valor: number (número)</text>
+
+  <rect x="116" y="1411" width="790" height="75" rx="16" fill="#f3f1e9" />
+  <text x="511" y="1458" class="sans" text-anchor="middle" font-size="22" font-weight="700" fill="#171b19">28.1 significa 28,1 g de carboidratos em 100 g do alimento.</text>
+</svg>
