@@ -1,22 +1,25 @@
-const input = document.querySelector("#busca")
-const sugestoes = document.querySelector("#sugestoes")
+const campoDeBusca = document.querySelector("#busca")
+const listaDeSugestoes = document.querySelector("#sugestoes")
 
-input.addEventListener("input", function () {
-  sugestoes.innerHTML = ""
+campoDeBusca.addEventListener("input", function () {
+  listaDeSugestoes.innerHTML = ""
 
-  if (input.value === "") return
+  const textoDigitado = campoDeBusca.value.toLowerCase()
+  if (textoDigitado === "") return
 
   for (const alimento of alimentos) {
-    if (alimento.nome.toLowerCase().includes(input.value.toLowerCase())) {
-      const item = document.createElement("li")
-      item.textContent = alimento.nome
+    const nomeDoAlimentoAtual = alimento.nome.toLowerCase()
 
-      item.onclick = function () {
-        input.value = alimento.nome
-        sugestoes.innerHTML = ""
+    if (nomeDoAlimentoAtual.includes(textoDigitado)) {
+      const sugestao = document.createElement("li")
+      sugestao.textContent = alimento.nome
+
+      sugestao.onclick = function () {
+        campoDeBusca.value = alimento.nome
+        listaDeSugestoes.innerHTML = ""
       }
 
-      sugestoes.appendChild(item)
+      listaDeSugestoes.appendChild(sugestao)
     }
   }
 })
